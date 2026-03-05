@@ -29,6 +29,22 @@ body {
   height: 520px;
 }
 
+.figure-media img {
+  display: block;
+}
+
+.figure-card.figure-half .figure-media img {
+  height: 420px;
+  object-fit: contain;
+  background: #fff;
+}
+
+.figure-card.figure-half .figure-media object,
+.figure-card.figure-half .figure-media iframe,
+.figure-card.figure-half .figure-media embed {
+  height: 420px;
+}
+
 .figure-caption {
   color: #444;
 }

@@ -74,13 +74,11 @@
       <h2 class="title is-3">Figures</h2>
 
       <div class="columns is-multiline">
-        <div class="column is-12">
-          <div class="figure-card">
+        <div class="column is-6">
+          <div class="figure-card figure-half">
             <h3 class="title is-4">Overview</h3>
             <div class="figure-media">
-              <object data="./static/UGSLoc_img/overview.pdf" type="application/pdf">
-                <p>PDF preview not available. <a href="./static/UGSLoc_img/overview.pdf">Download</a>.</p>
-              </object>
+              <img src="./static/UGSLoc_img/overview.png" alt="UGS-Loc overview figure">
             </div>
             <p class="figure-caption">
               UGS-Loc overview. The framework refines camera pose by combining Monte Carlo pose sampling
@@ -89,13 +87,25 @@
           </div>
         </div>
 
+        <div class="column is-6">
+          <div class="figure-card figure-half">
+            <h3 class="title is-4">Comparison Graph</h3>
+            <div class="figure-media">
+              <img src="./static/UGSLoc_img/comparision_graph.png" alt="Comparison graph">
+            </div>
+            <p class="figure-caption">
+              Comparison between previous 3DGS-based pose refinement and UGS-Loc. Our method uses Monte
+              Carlo pose sampling and Fisher-information-based uncertainty to focus refinement on reliable
+              regions, improving robustness under poor pose priors.
+            </p>
+          </div>
+        </div>
+
         <div class="column is-12">
           <div class="figure-card">
             <h3 class="title is-4">Figure 1</h3>
             <div class="figure-media">
-              <object data="./static/UGSLoc_img/fig1.pdf" type="application/pdf">
-                <p>PDF preview not available. <a href="./static/UGSLoc_img/fig1.pdf">Download</a>.</p>
-              </object>
+              <img src="./static/UGSLoc_img/fig1.png" alt="Figure 1">
             </div>
             <p class="figure-caption">
               UGS-Loc. Our proposed framework refines camera pose by incorporating pose prior uncertainty
@@ -109,9 +119,7 @@
           <div class="figure-card">
             <h3 class="title is-4">Figure 1 (final)</h3>
             <div class="figure-media">
-              <object data="./static/UGSLoc_img/fig1_last_re_re.pdf" type="application/pdf">
-                <p>PDF preview not available. <a href="./static/UGSLoc_img/fig1_last_re_re.pdf">Download</a>.</p>
-              </object>
+              <img src="./static/UGSLoc_img/fig1_last_re_re.png" alt="Figure 1 final">
             </div>
             <p class="figure-caption">
               Final version of the Figure 1 overview used in the paper.
@@ -123,43 +131,11 @@
           <div class="figure-card">
             <h3 class="title is-4">Uncertainty-based PnP (v1)</h3>
             <div class="figure-media">
-              <object data="./static/UGSLoc_img/Uncertainty_based_PnP.pdf" type="application/pdf">
-                <p>PDF preview not available. <a href="./static/UGSLoc_img/Uncertainty_based_PnP.pdf">Download</a>.</p>
-              </object>
+              <img src="./static/UGSLoc_img/Uncertainty_based_PnP.png" alt="Uncertainty-based PnP">
             </div>
             <p class="figure-caption">
               Effect of uncertainty-based PnP. High-uncertainty correspondences are suppressed, yielding
               more reliable inliers and improved pose estimates.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-12">
-          <div class="figure-card">
-            <h3 class="title is-4">Uncertainty-based PnP (v2)</h3>
-            <div class="figure-media">
-              <object data="./static/UGSLoc_img/Uncertainty_based_PnP2.pdf" type="application/pdf">
-                <p>PDF preview not available. <a href="./static/UGSLoc_img/Uncertainty_based_PnP2.pdf">Download</a>.</p>
-              </object>
-            </div>
-            <p class="figure-caption">
-              Additional visualization of uncertainty-guided correspondence filtering in the PnP stage.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-12">
-          <div class="figure-card">
-            <h3 class="title is-4">Comparison Graph</h3>
-            <div class="figure-media">
-              <object data="./static/UGSLoc_img/comparision_graph.pdf" type="application/pdf">
-                <p>PDF preview not available. <a href="./static/UGSLoc_img/comparision_graph.pdf">Download</a>.</p>
-              </object>
-            </div>
-            <p class="figure-caption">
-              Comparison between previous 3DGS-based pose refinement and UGS-Loc. Our method uses Monte
-              Carlo pose sampling and Fisher-information-based uncertainty to focus refinement on reliable
-              regions, improving robustness under poor pose priors.
             </p>
           </div>
         </div>
