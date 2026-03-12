@@ -105,7 +105,7 @@
     <div class="figure-card">
       <img src="./static/UGSLoc_img/overview.png" alt="Figure 1: UGS-Loc overview">
       <p class="figure-caption">
-        UGS-Loc. Our proposed framework refines camera pose by incorporating pose prior uncertainty
+        The overview of UGS-Loc. Our proposed framework refines camera pose by incorporating pose prior uncertainty
         via Monte Carlo sampling and geometric uncertainty via uncertainty fields, achieving robust
         localization without retraining.
       </p>
@@ -118,19 +118,25 @@
     <h2 class="title is-3 section-title">Abstract</h2>
     <div class="content is-size-5 has-text-justified">
       <p>
-        3D Gaussian Splatting (3DGS) has recently emerged as a powerful scene representation and is
+        <strong>3D Gaussian Splatting (3DGS)</strong> has recently emerged as a powerful scene representation and is
         increasingly used for visual localization and pose refinement. However, despite its high-quality
         differentiable rendering, the robustness of 3DGS-based pose refinement remains highly sensitive to
-        both the initial camera pose and the reconstructed geometry. In this work, we take a closer look
-        at these limitations and identify two major sources of uncertainty: (i) pose prior uncertainty,
-        which often arises from regression or retrieval models that output a single deterministic estimate,
-        and (ii) geometric uncertainty, caused by imperfections in the 3DGS reconstruction that propagate
-        errors into PnP solvers. Such uncertainties can distort reprojection geometry and destabilize
-        optimization, even when the rendered appearance still looks plausible. To address these
-        uncertainties, we introduce a relocalization framework that combines Monte Carlo pose sampling
-        with Fisher Information-based PnP optimization. Our method explicitly accounts for both pose and
+        both the <strong>initial camera pose</strong> and the <strong>reconstructed geometry</strong>.
+      </p>
+      <p>
+        We identify two major sources of uncertainty:
+      </p>
+      <ul>
+        <li><strong>Pose prior uncertainty:</strong> arises from regression or retrieval models that output a single deterministic estimate.</li>
+        <li><strong>Geometric uncertainty:</strong> caused by imperfections in 3DGS reconstruction that propagate errors into PnP solvers.</li>
+      </ul>
+      <p>
+        Such uncertainties can distort reprojection geometry and destabilize optimization, even when the
+        rendered appearance still looks plausible. To address these issues, we introduce <strong>UGS-Loc</strong>,
+        a relocalization framework that combines <strong>Monte Carlo pose sampling</strong> with
+        <strong>Fisher Information-based PnP optimization</strong>. Our method explicitly accounts for both pose and
         geometric uncertainty and requires no retraining or additional supervision. Across diverse indoor
-        and outdoor benchmarks, our approach consistently improves localization accuracy and significantly
+        and outdoor benchmarks, UGS-Loc consistently improves localization accuracy and significantly
         increases stability under pose and depth noise.
       </p>
     </div>
