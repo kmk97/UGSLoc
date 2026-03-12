@@ -91,7 +91,7 @@
 </section>
 
 <section class="section">
-  <div class="container is-max-desktop" style="max-width: 100em;">
+  <div class="container is-max-desktop" style="max-width: 80em;">
     <div class="column has-text-centered">
       <div class="content">
         <img src="./static/UGSLoc_img/overview.png" alt="UGS-Loc overview figure">
@@ -146,24 +146,20 @@
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-multiline">
-      <div class="column is-7">
-        <div class="figure-card figure-half">
-          <div class="figure-media">
-            <img src="./static/UGSLoc_img/fig1.png" alt="UGS-Loc overview figure">
-          </div>
+      <div class="column is-7 has-text-centered">
+        <div class="content">
+          <img src="./static/UGSLoc_img/fig1.png" alt="UGS-Loc overview figure">
         </div>
       </div>
 
-      <div class="column is-5">
-        <div class="figure-card figure-half">
-          <div class="figure-media">
-            <img src="./static/UGSLoc_img/comparision_graph.png" alt="Comparison graph">
-          </div>
+      <div class="column is-5 has-text-centered">
+        <div class="content">
+          <img src="./static/UGSLoc_img/comparision_graph.png" alt="Comparison graph">
         </div>
       </div>
 
       <div class="column is-12">
-        <p class="figure-caption">
+        <p style="max-width: 60em; text-align: center; margin: 0 auto;">
           Left: UGS-Loc overview. The framework refines camera pose by combining Monte Carlo pose sampling
           with uncertainty-aware PnP optimization for robust localization. Right: Comparison between
           previous 3DGS-based pose refinement and UGS-Loc. Our method uses Monte Carlo pose sampling and
@@ -172,28 +168,24 @@
         </p>
       </div>
 
-      <div class="column is-12">
-        <div class="figure-card">
-          <div class="figure-media">
-            <img src="./static/UGSLoc_img/Uncertainty_based_PnP.png" alt="Uncertainty-based PnP">
-          </div>
-          <p class="figure-caption">
-            Effect of uncertainty-based PnP. High-uncertainty correspondences are suppressed, yielding
-            more reliable inliers and improved pose estimates.
-          </p>
+      <div class="column is-12 has-text-centered">
+        <div class="content">
+          <img src="./static/UGSLoc_img/Uncertainty_based_PnP.png" alt="Uncertainty-based PnP">
         </div>
+        <p style="max-width: 60em; text-align: center; margin: 0 auto;">
+          Effect of uncertainty-based PnP. High-uncertainty correspondences are suppressed, yielding
+          more reliable inliers and improved pose estimates.
+        </p>
       </div>
 
-      <div class="column is-12">
-        <div class="figure-card">
-          <div class="figure-media">
-            <img src="./static/UGSLoc_img/result_graph.png" alt="Result graph">
-          </div>
-          <p class="figure-caption">
-            Error-confidence and error-uncertainty trends. Higher matcher confidence and lower geometric
-            uncertainty correlate with smaller localization errors.
-          </p>
+      <div class="column is-12 has-text-centered">
+        <div class="content">
+          <img src="./static/UGSLoc_img/result_graph.png" alt="Result graph">
         </div>
+        <p style="max-width: 60em; text-align: center; margin: 0 auto;">
+          Error-confidence and error-uncertainty trends. Higher matcher confidence and lower geometric
+          uncertainty correlate with smaller localization errors.
+        </p>
       </div>
     </div>
   </div>
