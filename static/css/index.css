@@ -373,6 +373,9 @@ body {
   background: #000;
   touch-action: none;
   margin: 10px 0 20px;
+  --p1: 25%;
+  --p2: 50%;
+  --p3: 75%;
 }
 
 .mc-layer {
@@ -383,6 +386,7 @@ body {
   width: 100%;
   overflow: hidden;
   pointer-events: none;
+  will-change: clip-path;
 }
 
 .mc-layer img {
@@ -400,6 +404,26 @@ body {
 .mc-layer-2 { z-index: 3; }
 .mc-layer-3 { z-index: 2; }
 .mc-layer-4 { z-index: 1; }
+
+.mc-layer-1 {
+  clip-path: inset(0 calc(100% - var(--p1)) 0 0);
+  -webkit-clip-path: inset(0 calc(100% - var(--p1)) 0 0);
+}
+
+.mc-layer-2 {
+  clip-path: inset(0 calc(100% - var(--p2)) 0 var(--p1));
+  -webkit-clip-path: inset(0 calc(100% - var(--p2)) 0 var(--p1));
+}
+
+.mc-layer-3 {
+  clip-path: inset(0 calc(100% - var(--p3)) 0 var(--p2));
+  -webkit-clip-path: inset(0 calc(100% - var(--p3)) 0 var(--p2));
+}
+
+.mc-layer-4 {
+  clip-path: inset(0 0 0 var(--p3));
+  -webkit-clip-path: inset(0 0 0 var(--p3));
+}
 
 .mc-label {
   position: absolute;
