@@ -195,41 +195,21 @@
   <div class="container">
     <div class="has-text-centered">
       <h2 class="title is-3">Visual Comparisons</h2>
-      <div class="columns is-centered">
-        <div class="column">
+      <div class="columns is-centered is-multiline">
+        <div class="column is-12">
           <div class="content">
-            <div id="compare4" class="mc-container">
-              <div class="mc-layer mc-layer-4">
-                <img src="./static/comparison_image/7scenes/stairs/gt_image.png" alt="Ground truth">
-                <span class="mc-label">Ground Truth</span>
-              </div>
-              <div class="mc-layer mc-layer-3">
-                <img src="./static/comparison_image/7scenes/stairs/coarse_rendering.png" alt="Coarse rendering">
-                <span class="mc-label">Coarse</span>
-              </div>
-              <div class="mc-layer mc-layer-2">
-                <img src="./static/comparison_image/7scenes/stairs/final_rendering_estimated_.png" alt="Refined rendering">
-                <span class="mc-label">Refined</span>
-              </div>
-              <div class="mc-layer mc-layer-1">
-                <img src="./static/comparison_image/7scenes/stairs/final_rendering_estimated.png" alt="Final rendering">
-                <span class="mc-label">Final</span>
-              </div>
-
-              <div class="mc-handle" data-index="0">
-                <span class="mc-handle-line"></span>
-              </div>
-              <div class="mc-handle" data-index="1">
-                <span class="mc-handle-line"></span>
-              </div>
-              <div class="mc-handle" data-index="2">
-                <span class="mc-handle-line"></span>
-              </div>
-            </div>
+            <img src="./static/UGSLoc_img/result1.png" alt="UGS-Loc result 1">
           </div>
-          <p style="max-width: 60em; text-align: center; margin: 0 auto;">
-            Drag the three sliders to compare four renderings from the 7-Scenes dataset (stairs).
-          </p>
+        </div>
+        <div class="column is-12">
+          <div class="content">
+            <img src="./static/UGSLoc_img/result2.png" alt="UGS-Loc result 2">
+          </div>
+        </div>
+        <div class="column is-12">
+          <div class="content">
+            <img src="./static/UGSLoc_img/result3.png" alt="UGS-Loc result 3">
+          </div>
         </div>
       </div>
     </div>
@@ -248,12 +228,6 @@
 </footer>
 
 <script src="./static/js/script.js"></script>
-<script>
-  new MultiCompare({
-    id: '#compare4',
-    positions: [25, 50, 75]
-  });
-</script>
 
 </body>
 </html>
