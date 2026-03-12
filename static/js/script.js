@@ -72,9 +72,15 @@ class MultiCompare {
         const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
         const applyPositions = () => {
-            layers[0].style.width = positions[0] + '%';
-            layers[1].style.width = positions[1] + '%';
-            layers[2].style.width = positions[2] + '%';
+            const clipFor = (pos) => `inset(0 ${100 - pos}% 0 0)`;
+
+            layers[0].style.clipPath = clipFor(positions[0]);
+            layers[0].style.webkitClipPath = clipFor(positions[0]);
+            layers[1].style.clipPath = clipFor(positions[1]);
+            layers[1].style.webkitClipPath = clipFor(positions[1]);
+            layers[2].style.clipPath = clipFor(positions[2]);
+            layers[2].style.webkitClipPath = clipFor(positions[2]);
+
             handles.forEach((handle, idx) => {
                 handle.style.left = positions[idx] + '%';
             });
