@@ -382,6 +382,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .mc-layer img {
@@ -421,10 +422,19 @@ body {
   margin-top: -20px;
   border: 2px solid #fff;
   border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
   box-shadow: 0 0 10px rgb(12, 12, 12);
   z-index: 10;
   pointer-events: auto;
   cursor: ew-resize;
+}
+
+.mc-handle-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .mc-handle-line::before,

@@ -91,21 +91,43 @@ class MultiCompare {
             applyPositions();
         };
 
+        const startDrag = (index, event, captureTarget) => {
+            captureTarget.setPointerCapture(event.pointerId);
+
+            const onMove = (moveEvent) => updateFromPointer(index, moveEvent.clientX);
+            const onUp = () => {
+                captureTarget.releasePointerCapture(event.pointerId);
+                captureTarget.removeEventListener('pointermove', onMove);
+                captureTarget.removeEventListener('pointerup', onUp);
+            };
+
+            captureTarget.addEventListener('pointermove', onMove);
+            captureTarget.addEventListener('pointerup', onUp);
+        };
+
         handles.forEach((handle) => {
             handle.addEventListener('pointerdown', (event) => {
+                event.stopPropagation();
                 const index = Number(handle.dataset.index);
-                handle.setPointerCapture(event.pointerId);
-
-                const onMove = (moveEvent) => updateFromPointer(index, moveEvent.clientX);
-                const onUp = () => {
-                    handle.releasePointerCapture(event.pointerId);
-                    handle.removeEventListener('pointermove', onMove);
-                    handle.removeEventListener('pointerup', onUp);
-                };
-
-                handle.addEventListener('pointermove', onMove);
-                handle.addEventListener('pointerup', onUp);
+                startDrag(index, event, handle);
             });
+        });
+
+        container.addEventListener('pointerdown', (event) => {
+            const rect = container.getBoundingClientRect();
+            const percent = ((event.clientX - rect.left) / rect.width) * 100;
+            let nearestIndex = 0;
+            let nearestDistance = Math.abs(percent - positions[0]);
+
+            for (let i = 1; i < positions.length; i += 1) {
+                const distance = Math.abs(percent - positions[i]);
+                if (distance < nearestDistance) {
+                    nearestDistance = distance;
+                    nearestIndex = i;
+                }
+            }
+
+            startDrag(nearestIndex, event, container);
         });
 
         window.addEventListener('resize', applyPositions);
