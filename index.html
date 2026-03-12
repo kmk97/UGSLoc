@@ -40,6 +40,11 @@
       border-radius: 8px;
       display: block;
     }
+    .figure-card.equal-height img {
+      height: 360px;
+      object-fit: contain;
+      background: #fff;
+    }
     .figure-caption {
       margin-top: 0.75rem;
       color: #4a4a4a;
@@ -148,13 +153,13 @@
     <h2 class="title is-3 section-title">Figures</h2>
     <div class="columns is-multiline">
       <div class="column is-7">
-        <div class="figure-card">
+        <div class="figure-card equal-height">
           <img src="./static/UGSLoc_img/fig1.png" alt="UGS-Loc overview figure">
         </div>
       </div>
 
       <div class="column is-5">
-        <div class="figure-card">
+        <div class="figure-card equal-height">
           <img src="./static/UGSLoc_img/comparision_graph.png" alt="Comparison graph">
         </div>
       </div>
