@@ -1,168 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="UGS-Loc project page for Rethinking Pose Refinement in 3D Gaussian Splatting under Pose Prior and Geometric Uncertainty.">
-  <meta name="keywords" content="UGS-Loc, 3D Gaussian Splatting, pose refinement, localization, uncertainty">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="UGS-Loc project page">
+  <meta name="keywords" content="UGS-Loc, 3D Gaussian Splatting, pose refinement, localization, uncertainty">
   <title>UGS-Loc: Rethinking Pose Refinement in 3D Gaussian Splatting</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
   <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    .section-title {
+      margin-bottom: 1rem;
+    }
+    .figure-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 0.75rem;
+      background: #fff;
+    }
+    .figure-card img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+    .figure-caption {
+      margin-top: 0.75rem;
+      color: #4a4a4a;
+      line-height: 1.55;
+    }
+    .feature-small {
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .big-vis {
+      padding: 0.5rem;
+    }
+    .big-vis img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .failure-card {
+      border: 1px solid #ffd4d4;
+      background: #fff8f8;
+    }
+  </style>
 </head>
 <body>
-  <section class="hero is-light">
-    <div class="hero-body">
-      <div class="container is-max-desktop has-text-centered">
-        <h1 class="title is-1">UGS-Loc</h1>
-        <p class="subtitle is-4">
-          Rethinking Pose Refinement in 3D Gaussian Splatting under Pose Prior and Geometric Uncertainty
-        </p>
-        <div class="is-size-5 publication-authors">
-          <span class="author-block">Mangyu Kong<sup>1</sup>,</span>
-          <span class="author-block">Jeawon Lee<sup>1</sup>,</span>
-          <span class="author-block">Seongwon Lee<sup>2</sup><sup>**</sup>,</span>
-          <span class="author-block">Euntai Kim<sup>1,3</sup><sup>*</sup></span>
-        </div>
-        <div class="is-size-6 publication-authors">
-          <span class="author-block"><sup>1</sup>Yonsei University,</span>
-          <span class="author-block"><sup>2</sup>Kookmin University,</span>
-          <span class="author-block"><sup>3</sup>Korea Institution of Science and Technology</span>
-        </div>
-        <p class="is-size-7">* and ** Corresponding authors.</p>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-2 publication-title">
+        UGS-Loc: Rethinking Pose Refinement in 3D Gaussian Splatting under Pose Prior and Geometric Uncertainty
+      </h1>
+
+      <div class="is-size-5 publication-authors mt-3">
+        <span class="author-block">Mangyu Kong<sup>1</sup>,</span>
+        <span class="author-block">Jeawon Lee<sup>1</sup>,</span>
+        <span class="author-block">Seongwon Lee<sup>2</sup><sup>**</sup>,</span>
+        <span class="author-block">Euntai Kim<sup>1,3</sup><sup>*</sup></span>
+      </div>
+      <div class="is-size-6 publication-authors">
+        <span class="author-block"><sup>1</sup>Yonsei University,</span>
+        <span class="author-block"><sup>2</sup>Kookmin University,</span>
+        <span class="author-block"><sup>3</sup>Korea Institution of Science and Technology</span>
+      </div>
+      <p class="is-size-7 has-text-grey mt-2">* and ** Corresponding authors.</p>
+
+      <div class="column has-text-centered mt-4">
         <div class="publication-links">
-          <a class="button is-dark is-rounded" href="https://github.com/kmk97/UGSLoc">
-            <span class="icon"><i class="fab fa-github"></i></span>
-            <span>Code</span>
-          </a>
+          <span class="link-block">
+            <a href="https://github.com/kmk97/UGSLoc" class="external-link button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+          </span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3">Abstract</h2>
-      <div class="content has-text-justified">
-        <p>
-          3D Gaussian Splatting (3DGS) has recently emerged as a powerful scene representation and is
-          increasingly used for visual localization and pose refinement. However, despite its high-quality
-          differentiable rendering, the robustness of 3DGS-based pose refinement remains highly sensitive to
-          both the initial camera pose and the reconstructed geometry. In this work, we take a closer look
-          at these limitations and identify two major sources of uncertainty: (i) pose prior uncertainty,
-          which often arises from regression or retrieval models that output a single deterministic estimate,
-          and (ii) geometric uncertainty, caused by imperfections in the 3DGS reconstruction that propagate
-          errors into PnP solvers. Such uncertainties can distort reprojection geometry and destabilize
-          optimization, even when the rendered appearance still looks plausible. To address these
-          uncertainties, we introduce a relocalization framework that combines Monte Carlo pose sampling
-          with Fisher Information-based PnP optimization. Our method explicitly accounts for both pose and
-          geometric uncertainty and requires no retraining or additional supervision. Across diverse indoor
-          and outdoor benchmarks, our approach consistently improves localization accuracy and significantly
-          increases stability under pose and depth noise.
+<section class="section" style="padding-top: 0;">
+  <div class="container is-max-desktop">
+    <div class="figure-card">
+      <img src="./static/UGSLoc_img/fig1.png" alt="Figure 1: UGS-Loc overview">
+      <p class="figure-caption">
+        UGS-Loc. Our proposed framework refines camera pose by incorporating pose prior uncertainty
+        via Monte Carlo sampling and geometric uncertainty via uncertainty fields, achieving robust
+        localization without retraining.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Abstract</h2>
+    <div class="content is-size-5 has-text-justified">
+      <p>
+        3D Gaussian Splatting (3DGS) has recently emerged as a powerful scene representation and is
+        increasingly used for visual localization and pose refinement. However, despite its high-quality
+        differentiable rendering, the robustness of 3DGS-based pose refinement remains highly sensitive to
+        both the initial camera pose and the reconstructed geometry. In this work, we take a closer look
+        at these limitations and identify two major sources of uncertainty: (i) pose prior uncertainty,
+        which often arises from regression or retrieval models that output a single deterministic estimate,
+        and (ii) geometric uncertainty, caused by imperfections in the 3DGS reconstruction that propagate
+        errors into PnP solvers. Such uncertainties can distort reprojection geometry and destabilize
+        optimization, even when the rendered appearance still looks plausible. To address these
+        uncertainties, we introduce a relocalization framework that combines Monte Carlo pose sampling
+        with Fisher Information-based PnP optimization. Our method explicitly accounts for both pose and
+        geometric uncertainty and requires no retraining or additional supervision. Across diverse indoor
+        and outdoor benchmarks, our approach consistently improves localization accuracy and significantly
+        increases stability under pose and depth noise.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title">Figures</h2>
+    <div class="columns is-multiline">
+      <div class="column is-6">
+        <div class="figure-card">
+          <img src="./static/UGSLoc_img/overview.png" alt="UGS-Loc overview figure">
+        </div>
+      </div>
+
+      <div class="column is-6">
+        <div class="figure-card">
+          <img src="./static/UGSLoc_img/comparision_graph.png" alt="Comparison graph">
+        </div>
+      </div>
+
+      <div class="column is-12">
+        <p class="figure-caption">
+          Left: UGS-Loc overview. The framework refines camera pose by combining Monte Carlo pose sampling
+          with uncertainty-aware PnP optimization for robust localization. Right: Comparison between
+          previous 3DGS-based pose refinement and UGS-Loc. Our method uses Monte Carlo pose sampling and
+          Fisher-information-based uncertainty to focus refinement on reliable regions, improving
+          robustness under poor pose priors.
         </p>
       </div>
 
-      <h2 class="title is-3">Figures</h2>
-
-      <div class="columns is-multiline">
-        <div class="column is-12">
-          <div class="figure-card">
-            <h3 class="title is-4">Figure 1</h3>
-            <div class="figure-media">
-              <img src="./static/UGSLoc_img/fig1.png" alt="Figure 1">
-            </div>
-            <p class="figure-caption">
-              UGS-Loc. Our proposed framework refines camera pose by incorporating pose prior uncertainty
-              via Monte Carlo sampling and geometric uncertainty via uncertainty fields, achieving robust
-              localization without retraining.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-6">
-          <div class="figure-card figure-half">
-            <h3 class="title is-4">Overview</h3>
-            <div class="figure-media">
-              <img src="./static/UGSLoc_img/overview.png" alt="UGS-Loc overview figure">
-            </div>
-          </div>
-        </div>
-
-        <div class="column is-6">
-          <div class="figure-card figure-half">
-            <h3 class="title is-4">Comparison Graph</h3>
-            <div class="figure-media">
-              <img src="./static/UGSLoc_img/comparision_graph.png" alt="Comparison graph">
-            </div>
-          </div>
-        </div>
-
-        <div class="column is-12">
+      <div class="column is-12">
+        <div class="figure-card">
+          <img src="./static/UGSLoc_img/fig1_last_re_re.png" alt="Figure 1 final">
           <p class="figure-caption">
-            Left: UGS-Loc overview. The framework refines camera pose by combining Monte Carlo pose sampling
-            with uncertainty-aware PnP optimization for robust localization. Right: Comparison between
-            previous 3DGS-based pose refinement and UGS-Loc. Our method uses Monte Carlo pose sampling and
-            Fisher-information-based uncertainty to focus refinement on reliable regions, improving
-            robustness under poor pose priors.
+            Final version of the Figure 1 overview used in the paper.
           </p>
         </div>
+      </div>
 
-        <div class="column is-12">
-          <div class="figure-card">
-            <h3 class="title is-4">Figure 1 (final)</h3>
-            <div class="figure-media">
-              <img src="./static/UGSLoc_img/fig1_last_re_re.png" alt="Figure 1 final">
-            </div>
-            <p class="figure-caption">
-              Final version of the Figure 1 overview used in the paper.
-            </p>
-          </div>
+      <div class="column is-12">
+        <div class="figure-card">
+          <img src="./static/UGSLoc_img/Uncertainty_based_PnP.png" alt="Uncertainty-based PnP">
+          <p class="figure-caption">
+            Effect of uncertainty-based PnP. High-uncertainty correspondences are suppressed, yielding
+            more reliable inliers and improved pose estimates.
+          </p>
         </div>
+      </div>
 
-        <div class="column is-12">
-          <div class="figure-card">
-            <h3 class="title is-4">Uncertainty-based PnP (v1)</h3>
-            <div class="figure-media">
-              <img src="./static/UGSLoc_img/Uncertainty_based_PnP.png" alt="Uncertainty-based PnP">
-            </div>
-            <p class="figure-caption">
-              Effect of uncertainty-based PnP. High-uncertainty correspondences are suppressed, yielding
-              more reliable inliers and improved pose estimates.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-12">
-          <div class="figure-card">
-            <h3 class="title is-4">Result Graph</h3>
-            <div class="figure-media">
-              <img src="./static/UGSLoc_img/result_graph.png" alt="Result graph">
-            </div>
-            <p class="figure-caption">
-              Error–confidence and error–uncertainty trends. Higher matcher confidence and lower geometric
-              uncertainty correlate with smaller localization errors.
-            </p>
-          </div>
+      <div class="column is-12">
+        <div class="figure-card">
+          <img src="./static/UGSLoc_img/result_graph.png" alt="Result graph">
+          <p class="figure-caption">
+            Error-confidence and error-uncertainty trends. Higher matcher confidence and lower geometric
+            uncertainty correlate with smaller localization errors.
+          </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="container is-max-desktop">
-      <div class="content has-text-centered">
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
         This page is based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>
         and licensed under CC BY-SA 4.0.
-      </div>
+      </p>
     </div>
-  </footer>
+  </div>
+</footer>
+
 </body>
 </html>
