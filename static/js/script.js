@@ -51,3 +51,64 @@ class BeforeAfter {
 
     }
 }
+
+class MultiCompare {
+    constructor(entry) {
+        const container = document.querySelector(entry.id);
+        if (!container) return;
+
+        const handles = Array.from(container.querySelectorAll('.mc-handle'));
+        const layers = [
+            container.querySelector('.mc-layer-1'),
+            container.querySelector('.mc-layer-2'),
+            container.querySelector('.mc-layer-3')
+        ];
+
+        const minGap = 5;
+        let positions = (entry.positions && entry.positions.length === 3)
+            ? entry.positions.slice()
+            : [25, 50, 75];
+
+        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+        const applyPositions = () => {
+            layers[0].style.width = positions[0] + '%';
+            layers[1].style.width = positions[1] + '%';
+            layers[2].style.width = positions[2] + '%';
+            handles.forEach((handle, idx) => {
+                handle.style.left = positions[idx] + '%';
+            });
+        };
+
+        const updateFromPointer = (index, clientX) => {
+            const rect = container.getBoundingClientRect();
+            const raw = ((clientX - rect.left) / rect.width) * 100;
+            const leftBound = index === 0 ? minGap : positions[index - 1] + minGap;
+            const rightBound = index === positions.length - 1
+                ? 100 - minGap
+                : positions[index + 1] - minGap;
+            positions[index] = clamp(raw, leftBound, rightBound);
+            applyPositions();
+        };
+
+        handles.forEach((handle) => {
+            handle.addEventListener('pointerdown', (event) => {
+                const index = Number(handle.dataset.index);
+                handle.setPointerCapture(event.pointerId);
+
+                const onMove = (moveEvent) => updateFromPointer(index, moveEvent.clientX);
+                const onUp = () => {
+                    handle.releasePointerCapture(event.pointerId);
+                    handle.removeEventListener('pointermove', onMove);
+                    handle.removeEventListener('pointerup', onUp);
+                };
+
+                handle.addEventListener('pointermove', onMove);
+                handle.addEventListener('pointerup', onUp);
+            });
+        });
+
+        window.addEventListener('resize', applyPositions);
+        applyPositions();
+    }
+}

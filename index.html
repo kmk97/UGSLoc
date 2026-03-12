@@ -198,55 +198,37 @@
       <div class="columns is-centered">
         <div class="column">
           <div class="content">
-            <div id="compare1" class="bal-container-small">
-              <div class="bal-after">
-                <img src="./static/comparison_image/7scenes/stairs/final_rendering_estimated.png" alt="Final rendering">
-                <div class="bal-afterPosition afterLabel" style="z-index:1;">
-                  Final
-                </div>
+            <div id="compare4" class="mc-container">
+              <div class="mc-layer mc-layer-4">
+                <img src="./static/comparison_image/7scenes/stairs/gt_image.png" alt="Ground truth">
+                <span class="mc-label">Ground Truth</span>
               </div>
-
-              <div class="bal-before">
-                <div class="bal-before-inset">
-                  <img src="./static/comparison_image/7scenes/stairs/gt_image.png" alt="Ground truth">
-                  <div class="bal-beforePosition beforeLabel">
-                    Ground Truth
-                  </div>
-                </div>
+              <div class="mc-layer mc-layer-3">
+                <img src="./static/comparison_image/7scenes/stairs/coarse_rendering.png" alt="Coarse rendering">
+                <span class="mc-label">Coarse</span>
               </div>
-
-              <div class="bal-handle">
-                <span class="handle-left-arrow"></span>
-                <span class="handle-right-arrow"></span>
-              </div>
-            </div>
-
-            <div id="compare2" class="bal-container-small">
-              <div class="bal-after">
+              <div class="mc-layer mc-layer-2">
                 <img src="./static/comparison_image/7scenes/stairs/final_rendering_estimated_.png" alt="Refined rendering">
-                <div class="bal-afterPosition afterLabel">
-                  Refined
-                </div>
+                <span class="mc-label">Refined</span>
+              </div>
+              <div class="mc-layer mc-layer-1">
+                <img src="./static/comparison_image/7scenes/stairs/final_rendering_estimated.png" alt="Final rendering">
+                <span class="mc-label">Final</span>
               </div>
 
-              <div class="bal-before">
-                <div class="bal-before-inset">
-                  <img src="./static/comparison_image/7scenes/stairs/coarse_rendering.png" alt="Coarse rendering">
-                  <div class="bal-beforePosition beforeLabel">
-                    Coarse
-                  </div>
-                </div>
+              <div class="mc-handle" data-index="0">
+                <span class="mc-handle-line"></span>
               </div>
-
-              <div class="bal-handle">
-                <span class="handle-left-arrow"></span>
-                <span class="handle-right-arrow"></span>
+              <div class="mc-handle" data-index="1">
+                <span class="mc-handle-line"></span>
+              </div>
+              <div class="mc-handle" data-index="2">
+                <span class="mc-handle-line"></span>
               </div>
             </div>
           </div>
           <p style="max-width: 60em; text-align: center; margin: 0 auto;">
-            Slide to compare four renderings from the 7-Scenes dataset (stairs). Replace these images with
-            another scene if needed.
+            Drag the three sliders to compare four renderings from the 7-Scenes dataset (stairs).
           </p>
         </div>
       </div>
@@ -267,11 +249,9 @@
 
 <script src="./static/js/script.js"></script>
 <script>
-  new BeforeAfter({
-    id: '#compare1'
-  });
-  new BeforeAfter({
-    id: '#compare2'
+  new MultiCompare({
+    id: '#compare4',
+    positions: [25, 50, 75]
   });
 </script>
 
