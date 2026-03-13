@@ -173,7 +173,7 @@
         <div class="content">
           <img src="./static/UGSLoc_img/graph_re_re_re_re.png" alt="UGS-Loc graph">
         </div>
-        <p style="max-width: 70em; text-align: center; margin: 0.75rem auto 0;">
+        <p style="max-width: 70em; text-align: center; margin: 0.75rem auto 1.5rem;">
           Distributions of error–confidence and error–uncertainty. For each frame, we plot translation or
           rotation error against the aggregated matcher confidence or depth uncertainty. The trend lines
           show that higher confidence and lower uncertainty correlate with smaller localization errors.
@@ -184,7 +184,7 @@
         <div class="content" style="max-width: 70em; margin: 0 auto;">
           <img src="./static/UGSLoc_img/Uncertainty_based_PnP.png" alt="Uncertainty-based PnP">
         </div>
-        <p style="max-width: 60em; text-align: center; margin: 0 auto;">
+        <p style="max-width: 60em; text-align: center; margin: 0 auto 1.5rem;">
           Effect of uncertainty-based PnP. High-uncertainty correspondences are suppressed, yielding
           more reliable inliers and improved pose estimates.
         </p>
@@ -215,10 +215,10 @@
             <img src="./static/UGSLoc_img/result3.png?v=20260305" alt="UGS-Loc result 3">
           </div>
           <p style="max-width: 70em; text-align: center; margin: 0.75rem auto 0;">
-            Visualization of localization quality. Each triplet of images compares the ground-truth view
-            (top-left) with the view rendered from (i) the input pose prior, (ii) the baseline GS-CPR
-            refinement, and (iii) our UGS-Loc refinement (bottom-right). A closer alignment along the
-            diagonal boundary indicates better pose accuracy.
+            Visualization of localization quality. Each pair of images compares the ground-truth view
+            (top-left) with the view rendered from (i) the repeated GS-CPR refinement, (ii) our proposed UGS-Loc refinement,
+            (bottom-right). A closer alignment along the diagonal boundary indicates better pose accuracy. IR denotes Image retrieval.
+            IR + UGS-Loc process is entirely scene-agnostic, without requiring scene-specific optimization or customization..
           </p>
         </div>
       </div>
