@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="UGS-Loc.">
+  <meta name="keywords" content="UGS-Loc, 3DGS, pose refinement, localization, uncertainty">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UGS-Loc</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            UGS-Loc: Rethinking Pose Refinement in 3D Gaussian Splatting under Pose Prior and Geometric Uncertainty
+          </h1>
+          <h1 class="title is-3 publication-title">CVPR 2026</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="http://kmk97.github.io">Mangyu Kong</a><sup>1</sup>,</span>
+            <span class="author-block">
+              Jeawon Lee<sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://sungonce.github.io/">Seongwon Lee</a><sup>2</sup><sup>**</sup>,</span>
+            <span class="author-block">
+              <a href="http://cilab.yonsei.ac.kr">Euntai Kim</a><sup>1,3</sup><sup>*</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Yonsei University,</span>
+            <span class="author-block"><sup>2</sup>Kookmin University,</span>
+            <span class="author-block"><sup>3</sup>Korea Institution of Science and Technology</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">* and ** Corresponding authors.</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/kmk97/UGSLoc"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop" style="max-width: 80em;">
+    <div class="column has-text-centered">
+      <div class="content">
+        <img src="./static/UGSLoc_img/overview.png" alt="UGS-Loc overview figure">
+      </div>
+      <p style="max-width: 60em; text-align: center; margin: 0 auto;">
+        The overview of UGS-Loc. Our proposed framework refines camera pose by incorporating pose prior uncertainty
+        via Monte Carlo sampling and geometric uncertainty via uncertainty fields, achieving robust
+        localization without retraining.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light" id="abstract">
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            <strong>3D Gaussian Splatting (3DGS)</strong> has recently emerged as a powerful scene representation and is
+            increasingly used for visual localization and pose refinement. However, despite its high-quality
+            differentiable rendering, the robustness of 3DGS-based pose refinement remains highly sensitive to
+            both the <strong>initial camera pose</strong> and the <strong>reconstructed geometry</strong>.
+          </p>
+          <p>
+            We identify two major sources of uncertainty:
+          </p>
+          <ul>
+            <li><strong>Pose prior uncertainty:</strong> arises from regression or retrieval models that output a single deterministic estimate.</li>
+            <li><strong>Geometric uncertainty:</strong> caused by imperfections in 3DGS reconstruction that propagate errors into PnP solvers.</li>
+          </ul>
+          <p>
+            Such uncertainties can distort reprojection geometry and destabilize optimization, even when the
+            rendered appearance still looks plausible. To address these issues, we introduce <strong>UGS-Loc</strong>,
+            a relocalization framework that combines <strong>Monte Carlo pose sampling</strong> with
+            <strong>Fisher Information-based PnP optimization</strong>. Our method explicitly accounts for both pose and
+            geometric uncertainty and requires no retraining or additional supervision. Across diverse indoor
+            and outdoor benchmarks, UGS-Loc consistently improves localization accuracy and significantly
+            increases stability under pose and depth noise.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-multiline">
+      <div class="column is-7 has-text-centered">
+        <div class="content">
+          <img src="./static/UGSLoc_img/fig1.png" alt="UGS-Loc overview figure">
+        </div>
+      </div>
+
+      <div class="column is-5 has-text-centered">
+        <div class="content">
+          <img src="./static/UGSLoc_img/comparision_graph.png" alt="Comparison graph">
+        </div>
+      </div>
+
+      <div class="column is-12">
+        <p style="max-width: 60em; text-align: center; margin: 0 auto;">
+          Left: UGS-Loc overview. The framework refines camera pose by combining Monte Carlo pose sampling
+          with uncertainty-aware PnP optimization for robust localization. Right: Comparison between
+          previous 3DGS-based pose refinement and UGS-Loc. Our method uses Monte Carlo pose sampling and
+          Fisher-information-based uncertainty to focus refinement on reliable regions, improving
+          robustness under poor pose priors.
+        </p>
+      </div>
+
+      <div class="column is-12 has-text-centered">
+        <div class="content">
+          <img src="./static/UGSLoc_img/graph_re_re_re_re.png" alt="UGS-Loc graph">
+        </div>
+        <p style="max-width: 70em; text-align: center; margin: 0.75rem auto 1.5rem;">
+          Distributions of error–confidence and error–uncertainty. For each frame, we plot translation or
+          rotation error against the aggregated matcher confidence or depth uncertainty. The trend lines
+          show that higher confidence and lower uncertainty correlate with smaller localization errors.
+        </p>
+      </div>
+
+      <div class="column is-12 has-text-centered">
+        <div class="content" style="max-width: 70em; margin: 0 auto;">
+          <img src="./static/UGSLoc_img/Uncertainty_based_PnP.png" alt="Uncertainty-based PnP">
+        </div>
+        <p style="max-width: 60em; text-align: center; margin: 0 auto 1.5rem;">
+          Effect of uncertainty-based PnP. High-uncertainty correspondences are suppressed, yielding
+          more reliable inliers and improved pose estimates.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="has-text-centered">
+      <h2 class="title is-3">Visual Comparisons</h2>
+      <div class="columns is-centered is-multiline">
+        <div class="column is-12">
+          <div class="content">
+            <img src="./static/UGSLoc_img/result1.png?v=20260305" alt="UGS-Loc result 1">
+          </div>
+          <p style="max-width: 70em; text-align: center; margin: 0.75rem auto 0;">
+            Visualization of localization quality on the 7-Scenes dataset. Each triplet compares the
+            ground-truth view (top-left) with the view rendered from (i) the input pose prior, (ii) the
+            baseline GS-CPR refinement, and (iii) our UGS-Loc refinement (bottom-right). A closer
+            alignment along the diagonal boundary indicates better pose accuracy.
+          </p>
+        </div>
+        <div class="column is-12" style="margin-top: 1.5rem;">
+          <div class="content" style="max-width: 70em; margin: 0 auto;">
+            <img src="./static/UGSLoc_img/result3.png?v=20260305" alt="UGS-Loc result 3">
+          </div>
+          <p style="max-width: 70em; text-align: center; margin: 0.75rem auto 0;">
+            Visualization of localization quality. Each pair of images compares the ground-truth view
+            (top-left) with the view rendered from (i) the repeated GS-CPR refinement, (ii) our proposed UGS-Loc refinement,
+            (bottom-right). A closer alignment along the diagonal boundary indicates better pose accuracy. IR denotes Image retrieval.
+            IR + UGS-Loc process is entirely scene-agnostic, without requiring scene-specific optimization or customization..
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        We express our thanks towards the authors of <a
+          href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> for the template of this website.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="./static/js/script.js"></script>
+
+</body>
+</html>
