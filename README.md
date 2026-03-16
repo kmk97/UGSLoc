@@ -1,14 +1,8 @@
-# UGS-Loc
+<h1 align="center">UGS-Loc</h1>
+<div align="center">
+  <a href="https://manky.github.io/UGS-Loc/"><img src="https://img.shields.io/badge/Project%20Page-UGS--Loc-3b82f6?style=flat-square"></a> &nbsp;
+  <a href="UGSLoc_arxiv_v2.pdf"><img src="https://img.shields.io/badge/ArXiv-red?logo=arxiv"></a>
+</div>
+<p align="center">CVPR 2026</p>
 
-Project page for the UGS-Loc paper. Edit `index.html` to add your final title,
-authors, links, and media.
-
-## Quick update checklist
-- Update title, authors, and affiliations in `index.html`
-- Replace placeholder links (paper/arXiv/video/code/data)
-- Replace media in `static/videos`, `static/images`, and `static/interpolation`
-- Update the BibTeX block
-
-## Template and license
-This page is based on the [Nerfies template](https://github.com/nerfies/nerfies.github.io)
-and is licensed under the Creative Commons Attribution-ShareAlike 4.0 license.
+Code will be released soon.
