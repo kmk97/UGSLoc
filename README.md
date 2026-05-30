@@ -9,13 +9,11 @@
 </p>
 
 **[Mangyu Kong](https://kmk97.github.io/), [Jaewon Lee](https://scholar.google.com/), [Seongwon Lee](https://scholar.google.com/), [Euntai Kim](https://scholar.google.com/)**  
-Code will be released soon.
 
 ## Overview
 
 This repository releases the **UGSLoc** particle-filter localization pipeline: scaffold-Gaussian rendering, MASt3R-based correspondence pose refinement (CPR), geometric uncertainty weighting, and importance-weighted robust estimation. All core code lives under `ugsLoc/`.
 
-> UGSLoc builds on [GS-CPR](https://github.com/XRIM-Lab/GS-CPR) as the rendering + CPR baseline and extends it with uncertainty-aware refinement and particle-filter localization.
 
 ## Installation
 
@@ -50,7 +48,7 @@ cd ../submodules/simple-knn && pip install -e .
 
 This repo contains **code and coarse pose priors only**. Pretrained assets will be released separately (project page / Google Drive — link TBD).
 
-Download and place them following the layout below (compatible with [GS-CPR](https://github.com/XRIM-Lab/GS-CPR) pretrained models):
+Download and place them following the layout below:
 
 ```
 /path/to/data/
@@ -119,11 +117,6 @@ Following [ACE](https://github.com/nianticlabs/ace) / [GS-CPR](https://github.co
 
 Use PGT (pseudo ground truth) poses as in GS-CPR:
 
-```shell
-cd GS-CPR/datasets   # clone GS-CPR separately, or reuse your existing copy
-./setup_7scenes.py --poses pgt
-# -> datasets/pgt_7scenes_{chess, fire, heads, office, pumpkin, redkitchen, stairs}/
-```
 
 Expected paths for localization:
 
@@ -145,11 +138,6 @@ Scenes: `chess`, `fire`, `heads`, `office`, `pumpkin`, `redkitchen`, `stairs`.
 
 ### Cambridge Landmarks
 
-```shell
-cd GS-CPR/datasets
-./setup_cambridge.py
-# -> datasets/Cambridge_{KingsCollege, ShopFacade, ...}/
-```
 
 For Cambridge, `-s` and `-m` typically point to the **same scene root**:
 
@@ -166,7 +154,7 @@ Scenes used in paper eval: `KingsCollege`, `ShopFacade`, `OldHospital`, `StMarys
 
 ## UGSLoc Localization Evaluation
 
-Paper-style hyperparameters (8 particles, 2 iterations, etc.) are built into `CambridgeLocParams` / `SevenScenesLocParams` in `ugsLoc/arguments/__init__.py`. Shell scripts only pass `-s`, `-m`, and `--scene_name`.
+Paper-style hyperparameters are built into `CambridgeLocParams` / `SevenScenesLocParams` in `ugsLoc/arguments/__init__.py`. Shell scripts only pass `-s`, `-m`, and `--scene_name`.
 
 ### Cambridge Landmarks
 
@@ -235,18 +223,6 @@ If you find our work helpful, please consider citing:
   author={Kong, Mangyu and Lee, Jaewon and Lee, Seongwon and Kim, Euntai},
   journal={arXiv preprint arXiv:2603.16538},
   year={2026}
-}
-```
-
-If you use the GS-CPR baseline components, please also cite:
-
-```bibtex
-@inproceedings{liu2025gscpr,
-  title={{GS}-{CPR}: Efficient Camera Pose Refinement via 3D Gaussian Splatting},
-  author={Changkun Liu and Shuai Chen and Yash Sanjay Bhalgat and Siyan HU and Ming Cheng and Zirui Wang and Victor Adrian Prisacariu and Tristan Braud},
-  booktitle={ICLR},
-  year={2025},
-  url={https://openreview.net/forum?id=mP7uV59iJM}
 }
 ```
 
