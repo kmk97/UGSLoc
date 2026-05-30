@@ -1,0 +1,13 @@
+tqdm
+colorama
+plyfile
+torch-scatter
+submodules/simple-knn
+jaxtyping
+opencv-python
+pandas
+einops
+matplotlib
+torchsummary
+kornia
+submodules/diff-gaussian-rasterization

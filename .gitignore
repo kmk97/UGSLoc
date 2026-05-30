@@ -1,8 +1,48 @@
-*.pyc
-.vscode
-output
-build
-diff_rasterization/diff_rast.egg-info
-diff_rasterization/dist
-tensorboard_3d
-screenshots
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+
+# IDE / local
+.vscode/
+.cursor/
+*.swp
+*~
+
+# Experiments & data (do not commit)
+output/
+outputs/
+logs/
+dataset/
+**/localization_results.txt
+**/results_final/
+STDLoc/rgb_map_cambridge/
+*.pt
+*.pth
+*.ckpt
+# Coarse-prior checkpoints — host via release / Drive, not git
+ugsLoc/paper_models/**/*.tar
+
+# Large artifacts
+*.pdf
+2603*.pdf
+*.zip
+*.tar
+*.tar.gz
+
+# Media from one-off runs
+**/frame_*.png
+screenshots/
+tensorboard_3d/
+
+# Compiled extensions
+**/diff_rasterization/
+**/diff_rast.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
