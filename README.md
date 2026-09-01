@@ -218,7 +218,7 @@ Results (per-camera errors, success rates) are saved under `ugsLoc/outputs/{outp
 If you find our work helpful, please consider citing:
 
 ```bibtex
-@InProceedings{Kong\_2026\_CVPR,
+@InProceedings{Kong_2026_CVPR,
     author    = {Kong, Mangyu and Lee, Jaewon and Lee, Seongwon and Kim, Euntai},
     title     = {Rethinking Pose Refinement in 3D Gaussian Splatting under Pose Prior and Geometric Uncertainty},
     booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
