@@ -46,7 +46,16 @@ cd ../submodules/simple-knn && pip install -e .
 
 ### Pretrained Gaussian maps, uncertainty fields, and appearance models
 
-This repo contains **code and coarse pose priors only**. Pretrained assets will be released separately (project page / Google Drive — link TBD).
+This repo contains **code and coarse pose priors**. Pretrained Hessian/uncertainty tensors are available in the [Google Drive release folder](https://drive.google.com/drive/folders/1_7daT3OYKmLtfv0BYqx84a308MDFmGwD).
+
+| Dataset | Download | Scenes | Archive size |
+|---|---|---:|---:|
+| Cambridge Landmarks | [Hessian assets (.zip)](https://drive.google.com/file/d/14ObuYMT6QUTFqwu3lpiQGYr4XbBTRJov/view?usp=drivesdk) | 4 | 76.94 MB |
+| 7-Scenes | [Hessian assets (.zip)](https://drive.google.com/file/d/16F2Y-e0DOstn2NA86OtwUlg3U-8QV61N/view?usp=drivesdk) | 7 | 30.75 MB |
+
+Extract the relevant archive and copy each scene's `hessian_color_semantic.pt` (Cambridge) or `hessian_color2.pt` (7-Scenes) into the corresponding Gaussian model root passed with `-m`. Each archive includes placement instructions, a tensor manifest, and `SHA256SUMS`.
+
+These tensors must be used with their corresponding pretrained Gaussian maps: they are indexed by Gaussian ordering and are not interchangeable with an independently trained map of the same scene. The archives contain **Hessian/uncertainty tensors only**; Gaussian maps, scaffold MLPs, appearance models, raw datasets, and generation code are not included.
 
 Download and place them following the layout below:
 
