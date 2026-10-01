@@ -51,7 +51,7 @@ This repo contains **code and coarse pose priors**. Pretrained Hessian/uncertain
 | Dataset | Download | Scenes | Archive size |
 |---|---|---:|---:|
 | Cambridge Landmarks | [Hessian assets (.zip)](https://drive.google.com/file/d/14ObuYMT6QUTFqwu3lpiQGYr4XbBTRJov/view?usp=drivesdk) | 4 | 76.94 MB |
-| 7-Scenes | [Hessian assets (.zip)](https://drive.google.com/file/d/16F2Y-e0DOstn2NA86OtwUlg3U-8QV61N/view?usp=drivesdk) | 7 | 30.75 MB |
+| 7-Scenes | — | 7 | 30.75 MB |
 
 Extract the relevant archive and copy each scene's `hessian_color_semantic.pt` (Cambridge) or `hessian_color2.pt` (7-Scenes) into the corresponding Gaussian model root passed with `-m`. Each archive includes placement instructions, a tensor manifest, and `SHA256SUMS`.
 
